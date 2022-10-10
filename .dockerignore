@@ -1,0 +1,8 @@
+# ignore everything
+*
+
+# whitelist allowed files
+!container
+!Dockerfile
+!License
+!README.md

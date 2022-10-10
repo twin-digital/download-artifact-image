@@ -1,0 +1,14 @@
+#!/usr/bin/env /bin/sh
+
+set -e
+
+: "${REPOSITORY:?Environment variable is required.}"
+: "${VERSION:?Environment variable is required.}"
+: "${ARTIFACT:?Environment variable is required.}"
+
+URL=https://github.com/${REPOSITORY}/releases/download/v${VERSION}/${ARTIFACT}.tar.gz
+echo "Downloading: $URL"
+curl --show-error -sfLo artifact.tar.gz "$URL"
+
+tar -zxvf artifact.tar.gz
+rm artifact.tar.gz
